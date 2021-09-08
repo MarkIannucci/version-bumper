@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import * as fs from "fs";
-import collectStats from "gh-actions-stats";
+import collectStats from "gh-action-stats";
 
 import { getBumperOptions, getBumperState } from "./utils/options";
 import BumperOptionsFile, { VersionFile } from "./lib/types/OptionsFile.types";
@@ -15,7 +15,7 @@ const SUCCESS = 0,
   FAILURE = 1;
 
 async function main() {
-  collectStats(__dirname);
+  collectStats();
 
   if (!core.getInput('github-token')) {
     core.error("Github token required");
